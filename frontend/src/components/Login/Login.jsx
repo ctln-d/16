@@ -62,7 +62,7 @@ function Login() {
                     onChange={(e) => setLastIn(e.target.value)}
                     className="last-in"
                 />
-                <button type="submit" className="login-btn">login</button>
+                <button type="submit" className="btn">login</button>
             </form>
         </div>
     )

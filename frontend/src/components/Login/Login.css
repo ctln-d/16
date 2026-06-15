@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "Parfumerie Script Curly";
+    src: url("../../../public/fonts/parfumerie-script-curly.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lancelot";
+    src: url("../../../public/fonts/Lancelot-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.title {
+    font-family: "Parfumerie Script Curly", cursive;
+    font-size: 80px;
+    text-align: center;
+}
+
+body {
+    background-color: #ECD752;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+form input {
+    font-family: "Lancelot", serif;
+    font-size: 30px;
+    color: black;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 72vw;
+}
+
+.btn {
+    font-family: "Parfumerie Script Curly", cursive;
+    font-size: 40px;
+    margin: 40px 0;
+    width: 32vw;
+    height: 6vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #7B9356;
+    color: white;
+}
