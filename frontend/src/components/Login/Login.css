@@ -14,13 +14,12 @@
 
 body {
     margin: 0;
-    overflow: hidden;
 }
 
 .bg {
     background-color: #ECD752;
     min-width: 100%;
-    min-height: 100%;
+    min-height: 150%;
     margin: 0;
     padding: 20px;
     overflow: hidden;

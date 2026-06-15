@@ -10,10 +10,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: -1vh;
 }
 
 .closed {
     max-width: 88%;
     height: auto;
+    transform: translateY(-6vh);
+}
+
+.open-text {
+    font-family: "Lancelot", serif;
+    font-size: 20px;
+    transform: translateY(-7vh);
 }
