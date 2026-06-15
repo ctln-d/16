@@ -34,7 +34,7 @@ function Login() {
     };
 
     return (
-        <div>
+        <div className="bg">
             <p className="title">enter your name</p>
 
             {error && (

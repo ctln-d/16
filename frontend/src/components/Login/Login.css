@@ -12,21 +12,31 @@
     font-style: normal;
 }
 
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.bg {
+    background-color: #ECD752;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+
 .title {
     font-family: "Parfumerie Script Curly", cursive;
     font-size: 80px;
     text-align: center;
 }
 
-body {
-    background-color: #ECD752;
-}
-
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 form input {
@@ -36,23 +46,24 @@ form input {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid black;
-    width: 72vw;
+    width: 72%;
+    border-radius: 0;
 }
 
 .btn {
     font-family: "Parfumerie Script Curly", cursive;
-    font-size: 40px;
-    margin: 40px 0;
-    width: 32vw;
-    height: 6vh;
+    font-size: clamp(20px, 10vw, 40px);
+    margin: 112px 0;
+    width: 32%;
+    height: 6%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-bottom: 10px;
-    border: 1px solid white;
     border-radius: 10px;
+    border: none;
     background-color: #7B9356;
     color: white;
 }
