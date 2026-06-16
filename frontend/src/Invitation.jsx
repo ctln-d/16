@@ -2,6 +2,7 @@ import invite from "./assets/invite.png";
 import "./Invitation.css";
 import { CgArrowLongDown } from "react-icons/cg";
 import PinterestBoard from "./components/PinterestBoard.jsx";
+import Checkbox from "./components/Checkbox.jsx";
 
 function Invitation() {
     return (
@@ -43,7 +44,14 @@ function Invitation() {
                 </p>
             </div>
             <div className="yellow-div">
-
+                <p className="title">rsvp</p>
+                <form>
+                    <div id="e">
+                        <Checkbox label="will be there" />
+                        <Checkbox label="can't make it" />
+                    </div>
+                    <button type="submit" className="btn">submit</button>
+                </form>
             </div>
         </div>
     )

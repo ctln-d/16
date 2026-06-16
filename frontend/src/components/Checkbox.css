@@ -1,0 +1,17 @@
+.checkbox-div {
+    display: flex;
+    flex-direction: row;
+    font-family: "Lancelot", serif;
+    font-size: 20px;
+}
+
+span {
+    white-space: nowrap;
+}
+
+.checkbox-div input {
+    accent-color: #7B9356;
+    transform: scale(1.5);
+    width: 30px;
+    border: 1px solid #7B9356;
+}
