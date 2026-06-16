@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 // any route that isn't an API route sends the frontend
 app.get('/{*path}', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 app.listen(port, () => {
