@@ -16,7 +16,7 @@ function Closed() {
                 src={closedEnvelope}
                 className="closed"
                 alt="closed envelope"
-                onClick={() => navigate("/inv")}
+                onClick={() => navigate("/open")}
             />
             <p className="open-text">tap to open</p>
         </div>

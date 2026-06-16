@@ -1,16 +1,20 @@
 .envelope {
-    position: relative;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    transform: translateY(21vh);
 }
 
 .stack {
     position: relative;
-    width: 400px;
+    width: 77vw;
     height: 300px;
+}
+
+.envelope-open,
+.envelope-front {
+    transform: translateX(4px);
 }
 
 .envelope-open,
@@ -25,16 +29,30 @@
 .window {
     position: absolute;
     left: 0;
-    top: 40px;
-    height: 180px;
+    top: 90px;
+    transform: translateY(-110px);
+    height: 45vh;
     overflow: hidden;
 }
 
 .invite {
     position: absolute;
-    top: 60px;
+    left: 50%;
     transition: top 1.2s ease;
+    width: 80%;
+    transform: translate(-50%, 40px);
+    animation: none;
 }
 .stack.open .invite {
-    top: 10px;
+    animation: rise 1.7s ease forwards;
+}
+
+@keyframes rise {
+    0% {
+        transform: translate(-50%, 200px)
+    }
+    100% {
+        transform: translate(-50%, 0px);
+    }
+
 }
