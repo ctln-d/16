@@ -24,7 +24,7 @@ function Invitation() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("http://localhost:3001/user/rsvp", {
+        axios.post("/user/rsvp", {
             firstName: localStorage.getItem("firstName"),
             lastIn: localStorage.getItem("lastIn"),
             going
