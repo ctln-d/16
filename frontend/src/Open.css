@@ -1,0 +1,40 @@
+.envelope {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stack {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.envelope-open,
+.envelope-front,
+.window {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.window {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.invite {
+    position: absolute;
+    top: 60px;
+    transition: top 1.2s ease;
+}
+.stack.open .invite {
+    top: 10px;
+}
