@@ -2,17 +2,46 @@ import invite from "./assets/invite.png";
 import "./Invitation.css";
 import { CgArrowLongDown } from "react-icons/cg";
 import PinterestBoard from "./components/PinterestBoard.jsx";
-import Checkbox from "./components/Checkbox.jsx";
+import Checkbox from "./components/Checkbox/Checkbox.jsx";
 import React, { useState } from "react";
+import axios from "axios";
+import { RiCloseLargeLine } from "react-icons/ri";
 
 function Invitation() {
-    const [selection, setSelection] = useState(null);
+    const [going, setGoing] = useState(null);
+    const [error, setError] = useState("");
+    const [submitted, setSubmitted] = useState(false);
 
     const handleToggle = (choice) => {
-        setSelection((prev) => (prev === choice ? null : choice));
+        setGoing((prev) => (prev === choice ? null : choice));
     };
 
+    console.log(
+        localStorage.getItem("firstName"),
+        localStorage.getItem("lastIn")
+    );
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post("http://localhost:3001/user/rsvp", {
+            firstName: localStorage.getItem("firstName"),
+            lastIn: localStorage.getItem("lastIn"),
+            going
+        })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.status === "SUCCESS") {
+                    setError("");
+                    setSubmitted(true);
+                } else {
+                    setError(res.data.message);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
 
 
     return (
@@ -36,8 +65,8 @@ function Invitation() {
             <div className="green-div">
                 <p id="c">we're going</p>
                 <div className="title-div">
-                    <p className="title" id="a">f</p>
-                    <p className="title" id="a">lower picking!</p>
+                    <p className="title" id="b">f</p>
+                    <p className="title" id="b">lower picking!</p>
                 </div>
                 <p className="address">
                     Fancy Farms<br/>
@@ -52,24 +81,41 @@ function Invitation() {
                     1221 S. Florida Ave.<br/>
                     Lakeland, FL 33803
                 </p>
+                <p className="text" id="a">**please arrive at my house no later than 2:15pm or we're leaving without you ;)</p>
             </div>
             <div className="yellow-div">
-                <p className="title" id="f">rsvp</p>
-                <form>
-                    <div id="e">
-                        <Checkbox
-                            label="will be there"
-                            checked={selection === "yes"}
-                            onChange={() => handleToggle("yes")}
-                        />
-                        <Checkbox
-                            label="can't make it"
-                            checked={selection === "no"}
-                            onChange={() => handleToggle("no")}
-                        />
+                {!submitted && (
+                    <div>
+                        {error && (
+                            <div className="alert-box">
+                                <p>access denied</p>
+                                <RiCloseLargeLine
+                                    onClick={() => setError("")}
+                                    style={{ cursor: "pointer" }}
+                                />
+                            </div>
+                        )}
+                        <p className="title" id="f">rsvp</p>
+                        <form onSubmit={handleSubmit}>
+                            <div id="e">
+                                <Checkbox
+                                    label="will be there"
+                                    checked={going === true}
+                                    onChange={() => handleToggle(true)}
+                                />
+                                <Checkbox
+                                    label="can't make it"
+                                    checked={going === false}
+                                    onChange={() => handleToggle(false)}
+                                />
+                            </div>
+                            <button type="submit" className="btn">submit</button>
+                        </form>
                     </div>
-                    <button type="submit" className="btn">submit</button>
-                </form>
+                )}
+                <div className="msg">
+                    {submitted && <p className="text" id="f">submitted successfully!</p>}
+                </div>
             </div>
         </div>
     )

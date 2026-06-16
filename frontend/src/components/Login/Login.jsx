@@ -15,15 +15,17 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("/user/login", {
+        axios.post("http://localhost:3001/user/login", {
             firstName,
             lastIn
         })
             .then(res => {
                 console.log(res.data);
                 if (res.data.status === "SUCCESS") {
+                    localStorage.setItem("firstName", firstName);
+                    localStorage.setItem("lastIn", lastIn);
                     setError("");
-                    navigate("/mail");
+                    navigate("/closed");
                 } else {
                     setError(res.data.message);
                 }
@@ -39,7 +41,7 @@ function Login() {
 
             {error && (
                 <div className="alert-box">
-                    {error}
+                    <p>access denied</p>
                     <RiCloseLargeLine
                         onClick={() => setError("")}
                         style={{ cursor: "pointer" }}

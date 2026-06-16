@@ -4,15 +4,20 @@ const router = express.Router();
 const User = require("../models/User");
 
 // login
-router.post("/user/login", (req, res) => {
+router.post("/login", (req, res) => {
     let {firstName, lastIn} = req.body;
     firstName = firstName.trim().toLowerCase();
     lastIn = lastIn.trim().toLowerCase();
 
-    if (firstName === "" || password === "") {
+    if (firstName === "" || lastIn === "") {
         return res.json({
             status: "FAILED",
             message: "empty credentials"
+        });
+    } else if (lastIn.length > 1) {
+        return res.json({
+            status: "FAILED",
+            message: "invalid last initial"
         });
     }
 
@@ -49,7 +54,7 @@ router.post("/user/login", (req, res) => {
 })
 
 // rsvp
-router.post("/user/rsvp", (req, res) => {
+router.post("/rsvp", (req, res) => {
     User.updateOne(
         { firstName: req.body.firstName, lastIn: req.body.lastIn },
         { $set: { going: req.body.going } }
@@ -68,3 +73,5 @@ router.post("/user/rsvp", (req, res) => {
             });
         })
 })
+
+module.exports = router;

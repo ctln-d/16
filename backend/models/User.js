@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     firstName: String,
     lastIn: String,
-    going: boolean,
+    going: Boolean,
 });
 
 const User = mongoose.model("User", UserSchema);

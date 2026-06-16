@@ -3,7 +3,6 @@ require("./config/db");
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 
 const app = express();
 app.use(cors());
@@ -14,3 +13,14 @@ const port = 3001
 // auth
 const UserRouter = require("./api/user");
 app.use("/user", UserRouter);
+
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// any route that isn't an API route sends the frontend
+app.get('/{*path}', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
