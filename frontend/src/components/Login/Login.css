@@ -53,8 +53,8 @@ form input {
     font-family: "Parfumerie Script Curly", cursive;
     font-size: clamp(20px, 10vw, 40px);
     margin: 112px 0;
-    width: 32%;
-    height: 6%;
+    width: 32vw;
+    height: 6vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

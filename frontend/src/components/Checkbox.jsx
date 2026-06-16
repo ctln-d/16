@@ -1,10 +1,14 @@
 import "./Checkbox.css";
 
-const Checkbox = ({ label }) => {
+const Checkbox = ({ label, checked, onChange }) => {
     return (
         <div>
             <label className="checkbox-div">
-                <input type="checkbox" />
+                <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={onChange}
+                />
                 <span>{label}</span>
             </label>
         </div>

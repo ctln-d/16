@@ -3,8 +3,18 @@ import "./Invitation.css";
 import { CgArrowLongDown } from "react-icons/cg";
 import PinterestBoard from "./components/PinterestBoard.jsx";
 import Checkbox from "./components/Checkbox.jsx";
+import React, { useState } from "react";
 
 function Invitation() {
+    const [selection, setSelection] = useState(null);
+
+    const handleToggle = (choice) => {
+        setSelection((prev) => (prev === choice ? null : choice));
+    };
+
+
+
+
     return (
         <div>
             <div className="white-div">
@@ -44,11 +54,19 @@ function Invitation() {
                 </p>
             </div>
             <div className="yellow-div">
-                <p className="title">rsvp</p>
+                <p className="title" id="f">rsvp</p>
                 <form>
                     <div id="e">
-                        <Checkbox label="will be there" />
-                        <Checkbox label="can't make it" />
+                        <Checkbox
+                            label="will be there"
+                            checked={selection === "yes"}
+                            onChange={() => handleToggle("yes")}
+                        />
+                        <Checkbox
+                            label="can't make it"
+                            checked={selection === "no"}
+                            onChange={() => handleToggle("no")}
+                        />
                     </div>
                     <button type="submit" className="btn">submit</button>
                 </form>
