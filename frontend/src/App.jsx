@@ -4,15 +4,19 @@ import Open from "./Open.jsx";
 import Invitation from "./Invitation.jsx";
 import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
+import MobilePrompt from "./components/MobilePrompt.jsx";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/closed" element={<Closed />} />
-            <Route path="/open" element={<Open />} />
-            <Route path="/inv" element={<Invitation />} />
-        </Routes>
+        <>
+            <MobilePrompt />
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/closed" element={<Closed />} />
+                <Route path="/open" element={<Open />} />
+                <Route path="/inv" element={<Invitation />} />
+            </Routes>
+        </>
     );
 }
 

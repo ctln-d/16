@@ -56,7 +56,7 @@ function Invitation() {
                     <br/>
                     you are encouraged to wear floor-length dresses or skirts;<br/>
                     <br/>
-                    white, floral pastel, or vibrant, it doesn't matter!<br/>
+                    white, floral, pastel, or vibrant, it doesn't matter!<br/>
                 </p>
                 <div className="pinterest-board">
                     <PinterestBoard />
