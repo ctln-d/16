@@ -20,7 +20,7 @@ const MobilePrompt = () => {
 
     return (
         <div>
-            <p className="text">i've detected you are on a laptop. switch to your phone please so it looks better</p>
+            <p className="text">i've detected you are not on your phone. switch to your phone please so it looks better</p>
         </div>
     )
 }
